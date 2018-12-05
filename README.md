@@ -1,2 +1,4 @@
 # sentimentanalysis
-sentimentalaysis
+Created by :
+- Misael Jonathan
+- Aldo Bima Syahputra
