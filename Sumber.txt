@@ -1,0 +1,35 @@
+List Nama Orang : 
+Mungkin Jokowi: @jokowi
+- Mahfud MD @mohmahfudmd
+- Susi Pudjiastuti @susipudjiastuti
+- Yusril Ihza Mahendra @Yusrilihza_Mhd
+- Ridwan Kamil @ridwankamil
+- Ganjar Pranowo
+
+Mungkin Prabowo: @prabowo
+- SBY @SBYudhoyono
+- Fadli Zon @fadlizon
+- Fahri Hamzah @Fahrihamzah
+- Sandiuno @sandiuno
+- Anies Baswedan @aniesbaswedan
+- 
+
+Sentimen MUNGKIN Positif :
+- Adil
+- Makmur
+- Terharu
+- Semangat
+- Bangga
+- Alhamdulilah
+- Damai
+- 
+
+IDK :
+- Sabar
+
+Negatif :
+- Gagal
+- Idiot
+- Sontoloyo
+- Pencemaran
+- 
