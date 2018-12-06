@@ -1,0 +1,4 @@
+cinta 1
+ganteng 1
+bangga 1
+stop 0

@@ -1,12 +1,26 @@
-import json
+lexicon = {}
 
-obj = None
-with open('data.json') as f:
-    obj = json.load(f)
-    print(obj["created_at"])
-#print(json.dumps(parsed, indent=4, sort_keys=True))
-outfile = open('file.json', 'w')
-outfile.write(json.dumps(obj, indent=4, sort_keys=True))
-outfile.close()
+# Ambil leksikon yang udah ada
+try :
+    with open('lexicon.txt', 'r') as file:
+        for line in file:
+            kata, nilai = line.split(" ")
+            lexicon[kata] = int(nilai)
+except FileNotFoundError :
+    print("File ngga ada")
 
-#print(json.dumps(json.dumps(obj)))
+# Tambahin kata pada leksikon (unique)
+kata = "start"
+while kata != "stop":
+
+    line = input("Masukin Kata Lagi : ")
+    kata, nilai = line.split(" ")
+
+    if kata in lexicon:
+        lexicon[str(kata)] += int(nilai)
+    else:
+        lexicon[str(kata)] = int(nilai)
+
+with open('lexicon.txt', 'w') as outfile:
+    for key in lexicon :
+        outfile.write(key + " " + str(lexicon[key]) + "\n")
