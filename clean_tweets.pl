@@ -1,11 +1,24 @@
 use strict;
 use warnings;
 
-my $filename = 'tweets.txt';
+#take file input and output from argv
+my ($filein, $fileout) = @ARGV;
 
-my $fileout = "tweets_cleaned.txt";
+#IF YOU WANT TO SET FILE MANUALLY, UNCOMENT THIS PART
+# $filein = "tweets.txt"
+# $fileout = "tweets_cleaned.txt"
 
-open(my $fh, '<:encoding(UTF-8)', $filename)
+
+#exception if no input 
+if (not defined $filein) {
+  die "Need file input\n";
+}
+
+if (not defined $fileout) {
+  die "Need file output\n";
+}
+
+open(my $fh, '<:encoding(UTF-8)', $filein)
   or die "File tidak bisa dibuka";
 
 open(my $output, '>', $fileout) or die $!;
