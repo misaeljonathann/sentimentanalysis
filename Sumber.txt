@@ -1,7 +1,7 @@
 List Nama Orang : 
 Mungkin Jokowi: @jokowi
-- Mahfud MD @mohmahfudmd
-- Susi Pudjiastuti @susipudjiastuti
+- Mahfud MD @mohmahfudmd DONE
+- Susi Pudjiastuti @susipudjiastuti 
 - Yusril Ihza Mahendra @Yusrilihza_Mhd
 - Ridwan Kamil @ridwankamil
 - Ganjar Pranowo
@@ -12,7 +12,16 @@ Mungkin Prabowo: @prabowo
 - Fahri Hamzah @Fahrihamzah
 - Sandiuno @sandiuno
 - Anies Baswedan @aniesbaswedan
-- 
+- Tifatul Sembiring @tifsembiring
+- Hanum Rais @hanumrais
+- KRMT Roy Suryo @KRMTRoySuryo2
+
+NETRAL tapi politikus :
+- Akbar Faizal @akbarfaizal68
+
+AKUN KW tapi politik :
+- @AmienRais_
+
 
 Sentimen MUNGKIN Positif :
 - Adil
