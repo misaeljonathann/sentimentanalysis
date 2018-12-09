@@ -1,0 +1,28 @@
+FLOW DARI PAPER BU MIRNA
+===============================
+1. collecting data (aroung 10 million tweets, searched by keywords)
+
+2. preprocess tweets : 
+- remove @... text
+- remove link text
+- remove RT character
+-  
+
+3. recognize and remove buzzers :
+
+	type of buzzers :
+	- bot
+	- paid tweeter/ fanatics : produce high frequency tweets
+
+	using ML. features are :
+	1 Average time period for the last 100 tweets from the user
+	2 Daily frequency of tweet produced by the user
+	3 The age of user account (from the creation date)
+	4 The number of URLs mentioned in the last 100 tweets
+	5 The number of retweets for the last 100 tweets
+	6 The number of followers
+	7 The number of following 
+
+4. 
+
+
