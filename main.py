@@ -39,15 +39,18 @@ if __name__ == "__main__":
     auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 
     api = tweepy.API(auth)
-    track = "atta halilintar OR jokowi OR jokowidodo OR prabowo"
-    # search = tweepy.Cursor(api.search, q=track, result_type="recent").items(500)
+    track = "jokowi OR jkw OR jokowidodo"
+    search = tweepy.Cursor(api.search, q=track, tweet_mode="extended").items(20)
     
-    with open('susipudjiastuti.txt', 'w') as outfile:
-        # for item in search:
-        #     outfile.write(str(item.created_at) + " " + str((item.text).encode("utf-8")) + "\n")
+    with open('tweets.txt', 'w') as outfile:
         
-        for status in tweepy.Cursor(api.user_timeline, screen_name="@susipudjiastuti", count=10000, tweet_mode="extended").items():
-            outfile.write(str(status.created_at) + " => " + str((status.full_text).encode("utf-8")) + "\n")
+        # TWEET EXTRACT
+        for item in search:
+            outfile.write(str(item.created_at) + " " + str((item.full_text).encode("ascii", errors='ignore')) + "\n")
+        
+        # USER EXTRACT
+        # for status in tweepy.Cursor(api.user_timeline, screen_name="@susipudjiastuti", count=10000, tweet_mode="extended").items():
+        #     outfile.write(str(status.created_at) + " => " + str((status.full_text).encode("utf-8")) + "\n")
 
 
     # stream = Stream(auth, listener)
