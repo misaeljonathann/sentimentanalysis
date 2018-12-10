@@ -68,3 +68,4 @@ adil 1
 keji -1
 jahat -1
 benar 1
+inspiratif 1
