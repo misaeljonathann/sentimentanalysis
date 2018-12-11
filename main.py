@@ -24,11 +24,10 @@ if __name__ == "__main__":
     auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 
     api = tweepy.API(auth)
-    # track = "jokowi OR jkw OR jokowidodo"
-    track = "prabowo"
+    track = "jokowi OR jkw OR jokowidodo"
     search = tweepy.Cursor(api.search, q=track, tweet_mode="extended").items(3000)
     
-    with open('tweets_prab.txt', 'a') as outfile:
+    with open('tweets.txt', 'a') as outfile:
 
         # TWEET EXTRACT
         for tweet_info in search:
