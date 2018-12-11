@@ -9,7 +9,7 @@ stemmer = factory.create_stemmer()
 
 sentimen = []
 
-with open('tweets.txt', 'r') as file:
+with open('tweets_cleaned.txt', 'r') as file:
     counter = 0
 
     for line in file :
