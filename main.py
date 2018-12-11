@@ -6,11 +6,17 @@ from pprint import pprint
 import json
 import tweepy
 
-CONSUMER_KEY = "SnxpqkOeT0kNkVC6KRNZPb0fY"
-CONSUMER_KEY_SECRET = "SN1Ld5PjarO3nJG3hSbemsxHPlKsy0DCi3osSCEM9Q0WHmcjUB"
+# CONSUMER_KEY = "UUCxBb6SVN4uENYuXOVCigNYg"
+# CONSUMER_KEY_SECRET = "QA7YMhVUJ7x5muQt0SW4Pts9sg4L1TZVLbMELaG7eAO94F6EtN"
 
-ACCESS_TOKEN = "1481426107-ChPBgQwWUPZeTiAp0R5XwvMiDKp0JqasHv6yHH5"
-ACCESS_TOKEN_SECRET = "q6E2XhGFYYBQGusbKL1L0SBms1sX9FlA2iEnbDvxEyNrU"
+# ACCESS_TOKEN = "890682047601098753-x1kSBNLehFMO2ornerKnYlX8EHMwvLj"
+# ACCESS_TOKEN_SECRET = "M6AHh6iceDZFZIipVd53dY6T17bT0BBNeeP3lapoW0XIU"
+
+CONSUMER_KEY = "tWnsD74A2Jj3jd8lUqD1uB8tP"
+CONSUMER_KEY_SECRET = "wr3VFrbF9TYTbGdaevjUi9uS6mVJw01mJOshibRQoLFXC0jdmy"
+
+ACCESS_TOKEN = "1071757219417313281-vmfqBRKnGcQWQU2cg74fmeZPHTiOLs"
+ACCESS_TOKEN_SECRET = "UVwotAKVsXweStTrWiObix3vcH2xY5msWWSQcSAeGXGDa"
 
 if __name__ == "__main__":
 
@@ -18,11 +24,12 @@ if __name__ == "__main__":
     auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 
     api = tweepy.API(auth)
-    track = "prabowo"
-    search = tweepy.Cursor(api.search, q=track, tweet_mode="extended").items(3200)
-    
-    with open('tweets2.txt', 'w') as outfile:
 
+    # track = "jokowi OR jkw OR jokowidodo"
+    track = "prabowo"
+    search = tweepy.Cursor(api.search, q=track, tweet_mode="extended").items(3000)
+    
+    with open('tweets_prab.txt', 'a') as outfile:
         # TWEET EXTRACT
         for tweet_info in search:
             if 'retweeted_status' in dir(tweet_info):
@@ -33,5 +40,4 @@ if __name__ == "__main__":
         # USER EXTRACT
         # for status in tweepy.Cursor(api.user_timeline, screen_name="@susipudjiastuti", count=10000, tweet_mode="extended").items():
         #     outfile.write(str(status.created_at) + " => " + str((status.full_text).encode("utf-8")) + "\n")
-
 
