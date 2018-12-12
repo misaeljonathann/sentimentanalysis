@@ -37,6 +37,7 @@ while (my $row = <$fh>) {
 	#$line  =~ s/[\S]*\\[\S]*//g; #remove undefined string \x2\x80 
 	$line =~ s/[[:punct:]][\s]/ /g; #remove unrelated punct
 	$line =~ s/[\s][[:punct:]]/ /g; #remove unrelated punct
+	$line =~ s/[[:punct:]]/ /g; #remove all punct
 	$line =~ s/[\s]{2,}/ /g; #remove double whitespace
 	$line =~ s/\\n/ /g; #remove \n
 
