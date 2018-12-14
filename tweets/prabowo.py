@@ -18,10 +18,10 @@ if __name__ == "__main__":
     auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 
     api = tweepy.API(auth)
-    track = "prabowo"
+    track = "J"
     search = tweepy.Cursor(api.search, q=track, tweet_mode="extended").items(3200)
     
-    with open('tweets_prab2.txt', 'a') as outfile:
+    with open('tweets_prab_raw.txt', 'a') as outfile:
         #TWEET EXTRACT
         for tweet_info in search:
            if 'retweeted_status' in dir(tweet_info):

@@ -26,10 +26,10 @@ if __name__ == "__main__":
     api = tweepy.API(auth)
 
     # track = "jokowi OR jkw OR jokowidodo"
-    track = "prabowo"
+    track = "jokowi OR jokowidodo OR jkw"
     search = tweepy.Cursor(api.search, q=track, tweet_mode="extended").items(3000)
     
-    with open('tweets_prab2.txt', 'a') as outfile:
+    with open('tweets_jkw_raw.txt', 'a') as outfile:
         # TWEET EXTRACT
         for tweet_info in search:
             if 'retweeted_status' in dir(tweet_info):
