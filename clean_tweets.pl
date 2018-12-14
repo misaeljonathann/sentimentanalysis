@@ -1,13 +1,14 @@
 use strict;
 use warnings;
 
+
 #take file input and output from argv
 my ($filein, $fileout) = @ARGV;
 
-#IF YOU WANT TO SET FILE MANUALLY, UNCOMENT THIS PART
-# $filein = "tweets.txt"
-# $fileout = "tweets_cleaned.txt"
 
+#IF YOU WANT TO SET FILE MANUALLY, UNCOMENT THIS PART
+$filein = "tweets_prab2.txt";
+$fileout = "tweets_cleaned_prab.txt";
 
 #exception if no input 
 if (not defined $filein) {
@@ -17,6 +18,7 @@ if (not defined $filein) {
 if (not defined $fileout) {
   die "Need file output\n";
 }
+
 
 open(my $fh, '<:encoding(UTF-8)', $filein)
   or die "File tidak bisa dibuka";
