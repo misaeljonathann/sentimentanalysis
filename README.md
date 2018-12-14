@@ -10,4 +10,4 @@ Keterangan Script :
 1) app.py
 
 Cara Penggunaan :
-1) he
+1) heee
