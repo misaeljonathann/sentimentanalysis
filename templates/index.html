@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Sentiment Analysis</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" media="screen" href="static\css\index.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <!-- <script src="main.js"></script> -->
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">TanahIRBeta</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="jumbotron">
+        <div class="container"> 
+            <p style="font-size: 6rem; font-style: oblique;">Sentiment Analysis</p>
+            <p style="font-size: 2rem">Menampilkan Sentimen Analisis terhadap Calon Presiden 2019 berdasarkan tweet dari twitter</p>
+            <p style="font-size: 2rem">Created by : Misael Jonathan, Aldo Bima Syahputra</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <h1 style="font-weight: bold">Profil</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <img src="/static/assets/jokowi.jpg" style="margin-left: auto; margin-right:auto; display: block">
+            </div>
+            <div class="col-md-6">
+                <img src="/static/assets/prabowo.jpg" style="margin-left: auto; margin-right:auto; display: block">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h3 style="font-weight: bold">Joko Widodo</h3>
+                <h5 style="font-size: 20px; text-align:justify">Ir. H. Joko Widodo atau Jokowi (lahir di Surakarta, Jawa Tengah, 21 Juni 1961; umur 57 tahun) adalah Presiden ke-7 Indonesia yang mulai menjabat sejak 20 Oktober 2014. Jokowi pernah menjabat Gubernur DKI Jakarta sejak 15 Oktober 2012 sampai dengan 16 Oktober 2014 didampingi Basuki Tjahaja Purnama sebagai wakil gubernur. Sebelumnya, dia adalah Wali Kota Surakarta (Solo), sejak 28 Juli 2005 sampai dengan 1 Oktober 2012 didampingi F.X. Hadi Rudyatmo sebagai wakil wali kota. Dua tahun menjalani periode keduanya menjadi Wali Kota Solo, Jokowi ditunjuk oleh partainya, Partai Demokrasi Indonesia Perjuangan (PDI-P), untuk bertarung dalam pemilihan Gubernur DKI Jakarta berpasangan dengan Basuki Tjahaja Purnama (Ahok).</h5>
+            </div>
+            <div class="col-md-6">
+                <h3 style="font-weight: bold">Prabowo Subianto</h3>
+                <h5 style="font-size: 20px; text-align:justify">Letnan Jenderal (Purn.) H. Prabowo Subianto Djojohadikusumo (lahir di Jakarta, 17 Oktober 1951; umur 67 tahun) adalah seorang politisi, pengusaha, dan perwira tinggi militer Indonesia. Ia menempuh pendidikan dan jenjang karier militer selama 28 tahun sebelum berkecimpung dalam dunia bisnis dan politik. Bersama Hatta Rajasa, ia maju sebagai calon Presiden Indonesia ke-7 dalam pemilihan umum 2014, namun diungguli oleh pasangan Joko Widodo dan Jusuf Kalla. Ia kembali mencalonkan diri sebagai presiden pada pemilihan umum Presiden Indonesia 2019, berpasangan dengan Sandiaga Uno.</h5>
+            </div>
+        </div>
+        <div class="row">
+            <h1 style="font-weight: bold; margin-top: 60px;">Hasil Analisa</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <iframe style="margin-left: auto; margin-right:auto; display: block" width="450" height="400" frameborder="0" scrolling="no" src="//plot.ly/~misaeljonathann/1.embed"></iframe>
+            </div>
+            <div class="col-md-6">
+                <iframe style="margin-left: auto; margin-right:auto; display: block"  width="450" height="400" frameborder="0" scrolling="no" src="//plot.ly/~misaeljonathann/3.embed"></iframe>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 40px; margin-bottom: 40px">
+            <div class="col-md-3" id="kotak">
+                <img src="/static/assets/tweets_total.png">
+            </div>
+            <div class="col-md-3" id="kotak">
+                <img src="/static/assets/tweets_positif.png">
+            </div>
+            <div class="col-md-3" id="kotak">
+                <img src="/static/assets/tweets_negatif.png">
+            </div>
+            <div class="col-md-3" id="kotak">
+                <img src="/static/assets/tweets_netral.png">
+            </div>
+        </div>
+        <div class="row" style="margin-top: 20px; margin-bottom: 40px">
+            <canvas id="chart"></canvas>
+        </div>
+    </div>
+    <footer>
+        
+    </footer>
+    <div class="jumbotron" id="form">
+        <div class="search-form">
+            <form>
+                <h2 style="width: 400px">Test our Sentiment Analyzer</h2>
+                <h4 id="hasil-analisa"></h4>
+                <input type="text" id="input">
+                <button></button>
+            </form>
+        </div>
+    </div>    
+    <script>
+        var input = document.querySelector('.search-form');
+        var search = document.querySelector('input');
+        var button = document.querySelector('button');
+        
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            if (input.classList.contains('active')) {
+                text = document.getElementById("input").value
+                $.ajax({
+                    url: 'http://127.0.0.1:5000/get_text',
+                    data: {'text': text},
+                    method: 'POST',
+                    success: function(data) {
+                        $("#hasil-analisa").text("Hasil Analisa : " + data['hasil'] + " dengan nilai " + data['nilai'])
+                        alert("Hasil Analisa : " + data['hasil'] + " dengan nilai " + data['nilai'])
+                    }
+                })
+            }
+            
+            input.classList.add('active');
+        })
+        search.addEventListener('focus', function() {
+            input.classList.add('focus');
+        })
+
+        search.addEventListener('blur', function() {
+            search.value.length != 0 ? input.classList.add('focus') : input.classList.remove('focus');
+        })
+
+        //Create Chart
+        let myChart = document.getElementById('chart').getContext('2d');
+        var myBarChart = new Chart(myChart, {
+            type: 'bar',
+            data: {
+                labels: ["Positive", "Negative", "Neutral"],
+                datasets: [{
+                    label: "Jokowi",
+                    backgroundColor: '#D6E9C6',
+                    data: [45703, 22940, 31357]
+                }, {
+                    label: "Prabowo",
+                    backgroundColor: '#EBCCD1',
+                    data: [41518, 27279, 31203]
+                }]
+                // options: {
+                //     scales: {
+                //         xAxes: [{ stacked: true }],
+                //         yAxes: [{ stacked: true }]
+                //     }
+                // }
+            }
+        })
+        
+
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</body>
+</html>
