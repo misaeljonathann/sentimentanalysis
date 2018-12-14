@@ -7,10 +7,6 @@ CORS(app)
  
 @app.route("/")
 def analyze():
-    dictio = {}
-    dictio["jambu"] = 100
-    dictio["wombo"] = 30
-    dictio["gilo"] = 10
     return render_template("index.html", dict=dictio)
 
 @app.route("/get_text", methods=['POST'])
