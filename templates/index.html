@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sentiment Analysis</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="static\css\index.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Sentiment Analysis</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" media="screen" href="static\css\index.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
     <!-- <script src="main.js"></script> -->
 </head>
 <body>
@@ -16,12 +17,6 @@
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#">TanahIRBeta</a>
                 </div>
-                <!-- <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">Page 1</a></li>
-                    <li><a href="#">Page 2</a></li>
-                    <li><a href="#">Page 3</a></li>
-                </ul> -->
             </div>
         </nav>
     </header>
@@ -34,28 +29,53 @@
     </div>
     <div class="container">
         <div class="row">
+            <h1 style="font-weight: bold">Profil</h1>
+        </div>
+        <div class="row">
             <div class="col-md-6">
-                <h3>Joko Widodo</h3>
-                <iframe width="450" height="400" frameborder="0" scrolling="no" src="//plot.ly/~misaeljonathann/1.embed"></iframe>
+                <img src="/static/assets/jokowi.jpg" style="margin-left: auto; margin-right:auto; display: block">
             </div>
             <div class="col-md-6">
-                <h3>Prabowo Subianto</h3>
-                <iframe width="450" height="400" frameborder="0" scrolling="no" src="//plot.ly/~misaeljonathann/1.embed"></iframe>
+                <img src="/static/assets/prabowo.jpg" style="margin-left: auto; margin-right:auto; display: block">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h3 style="font-weight: bold">Joko Widodo</h3>
+                <h5 style="font-size: 20px; text-align:justify">Ir. H. Joko Widodo atau Jokowi (lahir di Surakarta, Jawa Tengah, 21 Juni 1961; umur 57 tahun) adalah Presiden ke-7 Indonesia yang mulai menjabat sejak 20 Oktober 2014. Jokowi pernah menjabat Gubernur DKI Jakarta sejak 15 Oktober 2012 sampai dengan 16 Oktober 2014 didampingi Basuki Tjahaja Purnama sebagai wakil gubernur. Sebelumnya, dia adalah Wali Kota Surakarta (Solo), sejak 28 Juli 2005 sampai dengan 1 Oktober 2012 didampingi F.X. Hadi Rudyatmo sebagai wakil wali kota. Dua tahun menjalani periode keduanya menjadi Wali Kota Solo, Jokowi ditunjuk oleh partainya, Partai Demokrasi Indonesia Perjuangan (PDI-P), untuk bertarung dalam pemilihan Gubernur DKI Jakarta berpasangan dengan Basuki Tjahaja Purnama (Ahok).</h5>
+            </div>
+            <div class="col-md-6">
+                <h3 style="font-weight: bold">Prabowo Subianto</h3>
+                <h5 style="font-size: 20px; text-align:justify">Letnan Jenderal (Purn.) H. Prabowo Subianto Djojohadikusumo (lahir di Jakarta, 17 Oktober 1951; umur 67 tahun) adalah seorang politisi, pengusaha, dan perwira tinggi militer Indonesia. Ia menempuh pendidikan dan jenjang karier militer selama 28 tahun sebelum berkecimpung dalam dunia bisnis dan politik. Bersama Hatta Rajasa, ia maju sebagai calon Presiden Indonesia ke-7 dalam pemilihan umum 2014, namun diungguli oleh pasangan Joko Widodo dan Jusuf Kalla. Ia kembali mencalonkan diri sebagai presiden pada pemilihan umum Presiden Indonesia 2019, berpasangan dengan Sandiaga Uno.</h5>
+            </div>
+        </div>
+        <div class="row">
+            <h1 style="font-weight: bold; margin-top: 60px;">Hasil Analisa</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <iframe style="margin-left: auto; margin-right:auto; display: block" width="450" height="400" frameborder="0" scrolling="no" src="//plot.ly/~misaeljonathann/1.embed"></iframe>
+            </div>
+            <div class="col-md-6">
+                <iframe style="margin-left: auto; margin-right:auto; display: block"  width="450" height="400" frameborder="0" scrolling="no" src="//plot.ly/~misaeljonathann/1.embed"></iframe>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 40px; margin-bottom: 40px">
+            <div class="col-md-3" id="kotak">
+                <img src="/static/assets/tweets_total.png">
+            </div>
+            <div class="col-md-3" id="kotak">
+                <img src="/static/assets/tweets_positif.png">
+            </div>
+            <div class="col-md-3" id="kotak">
+                <img src="/static/assets/tweets_negatif.png">
+            </div>
+            <div class="col-md-3" id="kotak">
+                <img src="/static/assets/tweets_netral.png">
             </div>
         </div>
         <div class="row" style="margin-top: 20px; margin-bottom: 40px">
-            <div class="col-md-3" id="kotak">
-                <img src="/static/assets/neutral_box2.png">
-            </div>
-            <div class="col-md-3" id="kotak">
-                <img src="/static/assets/positif_box2.png">
-            </div>
-            <div class="col-md-3" id="kotak">
-                <img src="/static/assets/negatif_box2.png">
-            </div>
-            <div class="col-md-3" id="kotak">
-                <img src="/static/assets/neutral_box2.png">
-            </div>
+            <canvas id="chart"></canvas>
         </div>
     </div>
     <footer>
@@ -65,6 +85,7 @@
         <div class="search-form">
             <form>
                 <h3 style="width: 400px">Test our Sentiment Analyzer</h3>
+                <h4 id="hasil-analisa"></h4>
                 <input type="text" id="input">
                 <button></button>
             </form>
@@ -85,7 +106,8 @@
                     data: {'text': text},
                     method: 'POST',
                     success: function(data) {
-                        alert("ini isinya " + data['text'])
+                        $("#hasil-analisa").text("Hasil Analisa : " + data['hasil'] + " dengan nilai " + data['nilai'])
+                        alert("Hasil Analisa : " + data['hasil'] + " dengan nilai " + data['nilai'])
                     }
                 })
             }
@@ -99,6 +121,32 @@
         search.addEventListener('blur', function() {
             search.value.length != 0 ? input.classList.add('focus') : input.classList.remove('focus');
         })
+
+        //Create Chart
+        let myChart = document.getElementById('chart').getContext('2d');
+        var myBarChart = new Chart(myChart, {
+            type: 'bar',
+            data: {
+                labels: ["Positive", "Negative", "Neutral"],
+                datasets: [{
+                    label: "Jokowi",
+                    backgroundColor: '#D6E9C6',
+                    data: [65, 59, 80]
+                }, {
+                    label: "Jokowi",
+                    backgroundColor: '#EBCCD1',
+                    data: [28, 48, 40]
+                }]
+                // options: {
+                //     scales: {
+                //         xAxes: [{ stacked: true }],
+                //         yAxes: [{ stacked: true }]
+                //     }
+                // }
+            }
+        })
+        
+
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </body>
