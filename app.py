@@ -5,17 +5,13 @@ from Analisis import analysis
 app = Flask(__name__)
 CORS(app)
  
-@app.route("/analyze")
+@app.route("/")
 def analyze():
     dictio = {}
     dictio["jambu"] = 100
     dictio["wombo"] = 30
     dictio["gilo"] = 10
     return render_template("index.html", dict=dictio)
-
-@app.route("/")
-def main():
-    return "HOME"
 
 @app.route("/get_text", methods=['POST'])
 def get_text():
