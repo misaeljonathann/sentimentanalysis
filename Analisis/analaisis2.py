@@ -18,14 +18,15 @@ class sentistrength:
     def main(self,sentence) :
         sentences = sentence.split('.')
         total_score = 0
+     
 
-        for sentence in sentences:
+        for sentence in sentences:            
             sentence_score = 0
-            prev = "";
+            prev = ""
             terms = sentence.split()
             terms_length = len(terms)
 
-            for i,term in enumerate(terms):
+            for term in terms:
                 
                 term_score = 0
                 
@@ -50,7 +51,7 @@ class sentistrength:
                     term_score *= -1
 
                 sentence_score += term_score
-                print (term,term_score)
+                #print (term,term_score)
                 prev = term
             total_score = sentence_score
         return total_score
@@ -81,24 +82,28 @@ scores = []
 res = {"positif" : 0, "netral" : 0 , "negatif" : 0}
 
 with open('tweets_cleaned.txt', 'r') as file:
+    i = 0
     for line in file :
         # factory = StemmerFactory()
         # stemmer = factory.create_stemmer()
         # line = stemmer.stem(line)
-        x = sentimen.main(line)
-        if x > 0 :
-            res["positif"] += 1
-        elif x < 0 :
-            res["negatif"] += 1
-        else :
-            res["netral"] +=1 
-        scores.append(x);
+        i += 1
+        if(i <= 100000) :
+            print(i)
+            x = sentimen.main(line)
+            if x > 0 :
+                res["positif"] += 1
+            elif x < 0 :
+                res["negatif"] += 1
+            else :
+                res["netral"] +=1 
+            scores.append(x);
 
 print(scores)
 print(res)
 
 with open('result_jkw.txt', 'a') as f:
-    f.write("\n====================leksikon3==========================\n")
+    f.write("\n====================leksikon5==========================\n")
     f.write(str(scores))
     f.write(str(res))
 
