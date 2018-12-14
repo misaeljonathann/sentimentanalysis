@@ -10,7 +10,6 @@ class SentimentAnalyzer:
 
     def __init__(self):
         self.negasi = [line.replace('\n','') for line in open("Analisis/negatingword.txt").read().splitlines()]
-        # self.tanya = [line.replace('\n','') for line in open("questionword.txt").read().splitlines()]
         self.postive_words = [line.replace('\n','') for line in open("Analisis/positive_gabung.txt").read().splitlines()]
         self.negative_words = [line.replace('\n','') for line in open("Analisis/negative_gabung.txt").read().splitlines()]
         # factory = StemmerFactory()
@@ -72,3 +71,38 @@ class SentimentAnalyzer:
                                                  newDistances[-1])))
             distances = newDistances
         return distances[-1]
+
+
+#UNCOMMAND UNTUK MENGANALISIS SEnTIMEN DARI SEBUAH FILE (yg sudah di clean)
+
+# with open('tweets_cleaned.txt', 'r') as file:
+#     i = 0
+#     for line in file :
+#         # factory = StemmerFactory()
+#         # stemmer = factory.create_stemmer()
+#         # line = stemmer.stem(line)
+#         x = sentimen.main(line)
+#         if x > 0 :
+#             res["positif"] += 1
+#         elif x < 0 :
+#             res["negatif"] += 1
+#         else :
+#             res["netral"] +=1 
+#         scores.append(x);
+#         i += 1
+#         if(i <= 100000) :
+#             print(i)
+#             x = sentimen.main(line)
+#             if x > 0 :
+#                 res["positif"] += 1
+#             elif x < 0 :
+#                 res["negatif"] += 1
+#             else :
+#                 res["netral"] +=1 
+#             scores.append(x);
+#  print(scores)
+# print(res)
+#  with open('result_jkw.txt', 'a') as f:
+#     f.write("\n====================RESULT==========================\n")
+#     f.write(str(scores))
+#     f.write(str(res))
