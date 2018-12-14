@@ -1,1 +1,1 @@
-web: gunicorn praktikum.wsgi --log-file -
+web: gunicorn -w 4 api:app
