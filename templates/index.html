@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sentiment Analysis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="static\css\index.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- <script src="main.js"></script> -->
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">TanahIRBeta</a>
+                </div>
+                <!-- <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">Page 1</a></li>
+                    <li><a href="#">Page 2</a></li>
+                    <li><a href="#">Page 3</a></li>
+                </ul> -->
+            </div>
+        </nav>
+    </header>
+    <div class="jumbotron">
+        <div class="container"> 
+            <p style="font-size: 6rem; font-style: oblique;">Sentiment Analysis</p>
+            <p style="font-size: 2rem">Menampilkan Sentimen Analisis terhadap Calon Presiden 2019 berdasarkan tweet dari twitter</p>
+            <p style="font-size: 2rem">Created by : Misael Jonathan, Aldo Bima Syahputra</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Joko Widodo</h3>
+                <iframe width="450" height="400" frameborder="0" scrolling="no" src="//plot.ly/~misaeljonathann/1.embed"></iframe>
+            </div>
+            <div class="col-md-6">
+                <h3>Prabowo Subianto</h3>
+                <iframe width="450" height="400" frameborder="0" scrolling="no" src="//plot.ly/~misaeljonathann/1.embed"></iframe>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 20px; margin-bottom: 40px">
+            <div class="col-md-3" id="kotak">
+                <img src="/static/assets/neutral_box2.png">
+            </div>
+            <div class="col-md-3" id="kotak">
+                <img src="/static/assets/positif_box2.png">
+            </div>
+            <div class="col-md-3" id="kotak">
+                <img src="/static/assets/negatif_box2.png">
+            </div>
+            <div class="col-md-3" id="kotak">
+                <img src="/static/assets/neutral_box2.png">
+            </div>
+        </div>
+    </div>
+    <footer>
+        
+    </footer>
+    <div class="jumbotron" id="form">
+        <div class="search-form">
+            <form>
+                <h3 style="width: 400px">Test our Sentiment Analyzer</h3>
+                <input type="text" id="input">
+                <button></button>
+            </form>
+        </div>
+    </div>    
+    <script>
+        var input = document.querySelector('.search-form');
+        var search = document.querySelector('input');
+        var button = document.querySelector('button');
+        
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            if (input.classList.contains('active')) {
+                text = document.getElementById("input").value
+                $.ajax({
+                    url: 'http://127.0.0.1:5000/get_text',
+                    data: {'text': text},
+                    method: 'POST',
+                    success: function(data) {
+                        alert("ini isinya " + data['text'])
+                    }
+                })
+            }
+            
+            input.classList.add('active');
+        })
+        search.addEventListener('focus', function() {
+            input.classList.add('focus');
+        })
+
+        search.addEventListener('blur', function() {
+            search.value.length != 0 ? input.classList.add('focus') : input.classList.remove('focus');
+        })
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</body>
+</html>
